@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { footerLinks } from '@/constance'
 
 const Footer = () => {
   return (
@@ -14,9 +15,33 @@ const Footer = () => {
         </p>
         </div>
         <div className='footer__links'>
-
+            {footerLinks.map((link) => (
+                <div 
+                key={link.title}
+                className='footer__link'
+                >
+                <h3 className='font-bold'>{link.title}</h3>
+                {link.links.map((item) => (
+                    <Link key={item.title} 
+                    href={item.url}
+                    className='text-gray-500'
+                    >
+                    {item.title}
+                    </Link>
+                ))}
+                </div>
+            ))}
+        </div> 
         </div>
-      </div>
+        <div className='bg-slate-800 flex justify-between items-center flex-wrap mt-10 border-t border-gray-100 sm:px-16 px-10 py-10 text-white'>
+            <p>@2023 CarBu all right reserved</p>
+
+            <div className='footer__copyright-link flex gap-10'>
+                <Link href="/">Privacy Policy</Link>
+                <Link href="/">Terms of Use</Link>
+            </div>
+         </div>
+      
     </footer>
   )
 }
