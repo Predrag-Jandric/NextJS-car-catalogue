@@ -19,13 +19,6 @@ query === ""
         .replace(/\s+/g, "")
         .includes(query.toLowerCase().replace(/\s+/g, ""))
     );
-    
-    useEffect(() => {
-      console.log(manufacturer);
-      
-    
-    }, [manufacturer])
-    
 
 return (
   <div className='search-manufacturer'>
