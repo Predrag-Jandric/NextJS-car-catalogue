@@ -1,6 +1,5 @@
 "use client"
 
-import React from 'react'
 import { SearchManufacturer } from "./"
 import { useState } from "react"
 
