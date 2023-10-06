@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { CarProps } from '@/types'
-import { CustomButton } from '.'
+import { CarDetails, CustomButton } from '.'
 import { calculateCarRent } from '@/utils/indes'
 
 interface CarCardProps {
@@ -41,14 +41,40 @@ const CarCard = ({ car }: CarCardProps) => {
 
       <div className='relative flex w-full mt-2'>
         <div className='flex group-hover:invisible w-full justify-between text-gray'>
-          <div className='flex flex-col justify-center items-center gap-2'>
-            <Image src="/steering-wheel.svg" width={20} height={20} alt='steering wheel' />
+          <article className='flex flex-col justify-center items-center gap-2'>
+            <Image src="/steering-wheel.svg" width={20} height={20} alt='image missing' />
             <p className='text-[14px]'>
               {transmission === "a" ? "automatic" : "manual"}
             </p>
-          </div>
+          </article>
+          <article className='flex flex-col justify-center items-center gap-2'>
+            <Image src="/tire.svg" width={20} height={20} alt='image missing' />
+            <p className='text-[14px]'>
+              {drive.toLocaleUpperCase()}
+            </p>
+          </article>
+          <article className='flex flex-col justify-center items-center gap-2'>
+            <Image src="/gas.svg" width={20} height={20} alt='image missing' />
+            <p className='text-[14px]'>
+              {city_mpg} MPG
+            </p>
+          </article>
+        </div>
+
+        <div className='car-card__btn-container'>
+          <CustomButton 
+            btnType="button"
+            title="View More"
+            containerStyles='w-full py-[10px] rounded-full bg-primary-blue'
+            textStyles="text-white text-[14px] leading-[17px] font-bold"
+            rightIcon="/right-arrow-svg"
+            handleClick={() => setIsOpen(true)}
+          />
         </div>
       </div>
+
+      <CarDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} car={car} />
+        
     </div>
   )
 }
