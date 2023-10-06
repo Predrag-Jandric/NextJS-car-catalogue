@@ -36,7 +36,7 @@ export default async function Home() {
           <section>
             <div className='home__cars-wrapper'>
               {allCars?.map((car) => (
-              <CarCard  />
+              <CarCard car={car} />
               ))}
             </div>
           </section>
