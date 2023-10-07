@@ -5,7 +5,7 @@ export async function fetchCars() {
 		'X-RapidAPI-Key': '000dba5225mshe422e6c4bb8e675p105351jsn201028fb5a14',
 		'X-RapidAPI-Host': 'cars-by-api-ninjas.p.rapidapi.com'
 	}
-    const response = await fetch('https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla', {
+    const response = await fetch('https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=q3', {
         headers: headers,
     })
 
@@ -28,6 +28,19 @@ export const calculateCarRent = (city_mpg: number, year: number) => {
     return rentalRatePerDay.toFixed(0);
   };
 
-  export const generateCarImageUrl = (car: CarProps, angle?: string) => {
+export const generateCarImageUrl = (car: CarProps, angle?: string) => {
+const url = new URL("https://cdn.imagin.studio/getimage");
+const { make, model, year } = car;
 
-  }
+url.searchParams.append('customer', 'hrjavascript-mastery');
+url.searchParams.append('make', make);
+url.searchParams.append('modelFamily', model.split(" ")[0]);
+url.searchParams.append('zoomType', 'fullscreen');
+url.searchParams.append('modelYear', `${year}`);
+// url.searchParams.append('zoomLevel', zoomLevel);
+url.searchParams.append('angle', `${angle}`);
+
+return `${url}`;
+}
+
+//   key hrjavascript-mastery

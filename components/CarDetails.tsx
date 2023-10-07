@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Fragment } from 'react'
 import { CarProps } from '@/types'
 import { Dialog, Transition } from '@headlessui/react'
+import { generateCarImageUrl } from '@/utils/indes'
 
 interface CarDetailsProps {
     isOpen: boolean
