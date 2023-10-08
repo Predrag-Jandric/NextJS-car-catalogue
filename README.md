@@ -1,5 +1,5 @@
 
-# NextJS - E Commerce car shop
+# NextJS - Car catalogue
 
 # 🔗 [Live Preview]()
 ![Design preview]()
