@@ -5,8 +5,9 @@ import { fetchCars } from '@/utils/indes'
 import { log } from 'console'
 import { create } from 'domain'
 import { fuels, yearsOfProduction } from '@/constance'
+import { HomeProps } from '@/types'
 
-export default async function Home({ searchParams }) {
+export default async function Home({ searchParams }: HomeProps) {
   const allCars = await fetchCars({
     manufacturer: searchParams.manufacturer || "",
     year: searchParams.year || 2022,
@@ -42,8 +43,8 @@ export default async function Home({ searchParams }) {
         {!isDataEmpty ? (
           <section>
             <div className='home__cars-wrapper'>
-              {allCars?.map((car) => (
-              <CarCard car={car} />
+              {allCars?.map((car, index) => (
+              <CarCard car={car} key={index} />
               ))}
             </div>
 

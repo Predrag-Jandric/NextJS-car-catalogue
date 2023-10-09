@@ -35,8 +35,8 @@ const CarCard = ({ car }: CarCardProps) => {
         </span>
       </p>
 
-      <div className='relative w-full h-40 my-3 object-contai'>
-      <Image src={generateCarImageUrl(car)} alt='image missing' fill priority />
+      <div className='relative w-full h-40 my-3'>
+      <Image className='object-contain' src={generateCarImageUrl(car)} alt='image missing' fill priority />
       </div>
 
       <div className='relative flex w-full mt-2'>
