@@ -12,8 +12,7 @@
     "@headlessui/react": "^1.7.17",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest",
-    "styled-jsx": "^5.1.2"
+    "react-dom": "latest"
   },
   "devDependencies": {
     "@types/node": "latest",
